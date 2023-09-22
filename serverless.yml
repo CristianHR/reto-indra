@@ -1,0 +1,44 @@
+service: challenge-indra
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+  timeout: 60
+  memorySize: 1024
+  versionFunctions: false
+  apiGateway:
+    shouldStartNameWithService: true
+  #iamRoleStatements:
+    #- Effect: Allow
+      #Action:
+        #- dynamodb:*
+      #Resource:
+        #- arn:aws:dynamodb:us-east-1:280737565097:table/PlanetsTable
+plugins:
+  - serverless-offline
+functions:
+  planetsHandler:
+    handler: src/handlers/planetsHandler.handler
+    events:
+      - http:
+          path: /api/planets
+          method: POST 
+      - http:
+          path: /api/planets
+          method: GET 
+resources:
+  Resources:
+    PlanetsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: PlanetsTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH

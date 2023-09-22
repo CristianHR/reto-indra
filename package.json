@@ -1,0 +1,31 @@
+{
+  "name": "challenge-indra-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "local": "npx sls offline start --lambdaPort 3005 --httpPort 3006 --stage dev --disableCookieValidation",
+    "local:watch": "npx sls offline start --lambdaPort 3005 --httpPort 3006 --stage dev --reloadHandler --disableCookieValidation",
+    "deploy:dev": "npx sls deploy --stage dev --region us-east-1",
+    "deploy": "npx sls deploy",
+    "start:dev": "npx sls offline start --stage=dev --region=us-east-1",
+    "build": "npm i --production",
+    "remove": "sls remove"
+  },
+  "author": "Cristian R. Hilario Rentera",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.410.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "serverless": "^3.34.0",
+    "serverless-http": "^3.2.0",
+    "swapi-node": "^0.7.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "serverless-offline": "^12.0.4"
+  }
+}

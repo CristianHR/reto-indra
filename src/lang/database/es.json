@@ -1,0 +1,19 @@
+{
+    "people": {},
+    "planets": {
+        "diameter": "diametro",
+        "climate": "clima",
+        "surface_water": "superficie_del_agua",
+        "name": "nombre",
+        "created":"creado",
+        "url": "url",
+        "rotation_period": "periodo_rotacion",
+        "edited": "editado",
+        "terrain": "terreno",
+        "gravity": "gravedad",
+        "orbital_period": "periodo_orbital",
+        "films": "peliculas",
+        "residents": "residentes",
+        "population": "poblacinn"
+    }
+}
